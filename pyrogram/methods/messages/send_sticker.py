@@ -35,6 +35,7 @@ class SendSticker:
         self: "pyrogram.Client",
         chat_id: Union[int, str],
         sticker: Union[str, BinaryIO],
+        caption: str = "",
         disable_notification: bool = None,
         reply_to_message_id: int = None,
         schedule_date: datetime = None,
@@ -159,7 +160,7 @@ class SendSticker:
                             schedule_date=utils.datetime_to_timestamp(schedule_date),
                             noforwards=protect_content,
                             reply_markup=await reply_markup.write(self) if reply_markup else None,
-                            message=""
+                            message=caption
                         )
                     )
                 except FilePartMissing as e:
