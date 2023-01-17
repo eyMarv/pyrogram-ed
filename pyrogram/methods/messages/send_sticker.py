@@ -65,6 +65,9 @@ class SendSticker:
                 pass an HTTP URL as a string for Telegram to get a .webp sticker file from the Internet,
                 pass a file path as string to upload a new sticker that exists on your local machine, or
                 pass a binary file-like object with its attribute ".name" set for in-memory uploads.
+            
+            caption (``str``, *optional*):
+                Sticker caption, 0-1024 characters.
 
             disable_notification (``bool``, *optional*):
                 Sends the message silently.
