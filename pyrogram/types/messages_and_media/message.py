@@ -2151,6 +2151,7 @@ class Message(Object, Update):
         self,
         sticker: Union[str, BinaryIO],
         quote: bool = None,
+        caption: str = "",
         disable_notification: bool = None,
         reply_to_message_id: int = None,
         reply_markup: Union[
@@ -2240,6 +2241,7 @@ class Message(Object, Update):
         return await self._client.send_sticker(
             chat_id=self.chat.id,
             sticker=sticker,
+            caption=caption,
             disable_notification=disable_notification,
             reply_to_message_id=reply_to_message_id,
             reply_markup=reply_markup,
