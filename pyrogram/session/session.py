@@ -96,6 +96,7 @@ class Session:
         self.recv_task = None
 
         self.is_started = asyncio.Event()
+        self.is_running = False
 
         self.loop = asyncio.get_event_loop()
 
@@ -151,11 +152,13 @@ class Session:
                 break
 
         self.is_started.set()
+        self.is_running = True
 
         log.info("Session started")
 
     async def stop(self):
         self.is_started.clear()
+        self.is_running = False
 
         self.stored_msg_ids.clear()
 
