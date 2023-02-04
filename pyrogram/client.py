@@ -272,6 +272,8 @@ class Client(Methods):
 
         self.session = None
 
+        self.tgdl_media_sessions = {}
+        self.tgdl_media_sessions_lock = asyncio.Lock()
         self.media_sessions = {}
         self.media_sessions_lock = asyncio.Lock()
 
